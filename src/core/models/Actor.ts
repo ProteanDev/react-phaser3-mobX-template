@@ -1,5 +1,9 @@
 import { types } from "mobx-state-tree"
-import Entity from "./Entity"
+import Entity, { IEntity } from "./Entity"
+
+export interface IActor extends IEntity {
+  hitPoints: number
+}
 
 const Actor = {
   entity: types.optional(Entity),

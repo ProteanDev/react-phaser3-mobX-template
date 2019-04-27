@@ -1,6 +1,11 @@
 import { types } from "mobx-state-tree"
-import Modifier from "./Modifier"
-import uuid from "uuid/v4"
+import Modifier, { IModifier } from "./Modifier"
+
+
+export interface IAction extends IModifier {
+  cooldown: number,
+  isReaction: boolean
+}
 
 const Action = {
   id: types.optional(types.identifier, uuid()),

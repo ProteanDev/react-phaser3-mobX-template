@@ -1,6 +1,12 @@
-import { types } from "mobx-state-tree"
-import Stats from "./Stats"
-import uuid from "uuid/v4"
+import { types, IModelType } from "mobx-state-tree"
+import Stats, { IStats } from "./Stats"
+
+
+export interface IModifier extends IModelType {
+  id: string,
+  addStats: IStats,
+  minusStats: IStats
+}
 
 const Modifier = {
   id: types.optional(types.identifier, uuid()),
