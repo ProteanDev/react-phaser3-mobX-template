@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react'
-import logo from './assets/logo.svg'
-import './App.css'
+import logo from '../assets/logo.svg'
+import '../styles/App.css'
 
 import Game from './Game'
 

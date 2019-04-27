@@ -4,8 +4,8 @@ import React, { Component } from 'react'
 import Phaser from 'phaser'
 
 //import logo from './assets/logo.svg'
-import config, { PARENT_DIV_TAG } from './config/phaser.config'
-import ExampleScene from './scenes/ExampleScene'
+import config, { PARENT_DIV_TAG } from '../config/phaser.config'
+import ExampleScene from '../scenes/ExampleScene'
 
 
 class PhaserGame extends Phaser.Game {
