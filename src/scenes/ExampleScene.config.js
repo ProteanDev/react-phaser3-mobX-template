@@ -9,4 +9,4 @@ export default {
   // loader: {},
   // plugins: false,
   // input: {}
-};
+}

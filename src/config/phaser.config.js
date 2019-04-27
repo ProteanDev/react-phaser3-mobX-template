@@ -1,6 +1,6 @@
-import Phaser from "phaser";
+import Phaser from "phaser"
 
-export const PARENT_DIV_TAG = "phaser-game";
+export const PARENT_DIV_TAG = "phaser-game"
 
 export default {
   type: Phaser.AUTO,
@@ -12,4 +12,4 @@ export default {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH
   }
-};
+}
