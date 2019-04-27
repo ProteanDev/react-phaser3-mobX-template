@@ -1,8 +1,9 @@
 import { types } from 'mobx-state-tree'
 import Stats from './Stats'
+import uuid from 'uuid/v4'
 
 const Entity = {
-	id: types.string,
+	id: types.optional(types.identifier, uuid()),
 	stats: types.optional(Stats),
 	indestructable: types.optional(types.boolean, false)
 }
