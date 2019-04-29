@@ -1,29 +1,22 @@
 import { types, Instance } from "mobx-state-tree"
 import { Guid } from "guid-typescript"
+import BaseModel from './BaseModel'
+import { getStatsActions } from '../actions'
 
-const _id = Guid.create().toString())
+const generatedID = Guid.create().toString())
 
-export const StatsStore = types.model("Stats", {
-  id: types.optional(types.string, _id),
+export const StatsMST = types.model("Stats", {
+  id: types.optional(types.string, generatedID),
   level: types.optional(types.number, 0),
   damage: types.optional(types.number, 0),
   defense: types.optional(types.number, 0)
-})
+}).actions(self => getStatsActions(self))
 
-export interface IStats extends Instance<typeof StatsStore> {}
+export interface IStats extends Instance<typeof StatsMST> { }
 
-export default class Stats implements IStats {
-  id: string = _id
+export default class Stats extends BaseModel {
+  id: string = generatedID
   level: number = 0
   damage: number = 0
   defense: number = 0
-
-  toPlainObject(): {
-    id: string,
-    level: number,
-    damage: number,
-    defense: number
-  } {
-    return Object.assign({}, this)
-  }
 }

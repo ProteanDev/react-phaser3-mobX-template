@@ -13,7 +13,8 @@
     },
     "ordered-imports": [false],
     "object-literal-sort-keys": [false],
-    "semicolon": [true, "never"]
+    "semicolon": [true, "never"],
+    "member-access": [true, "no-public"]
   },
   "jsRules": {
     "no-console": {
@@ -21,6 +22,7 @@
     },
     "ordered-imports": [false],
     "object-literal-sort-keys": [false],
-    "semicolon": [true, "never"]
+    "semicolon": [true, "never"],
+    "member-access": [true, "no-public"]
   }
 }

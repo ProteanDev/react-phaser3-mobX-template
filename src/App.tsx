@@ -5,7 +5,7 @@ import './styles/App.css'
 import Game from './components/Game'
 
 class App extends React.Component {
-  public render() {
+  render() {
     return <Game />
   }
 }

@@ -1,19 +1,20 @@
-import { types, IModelType } from "mobx-state-tree"
-import Stats, { IStats } from "./Stats"
+import { types, Instance } from "mobx-state-tree"
+import Stats from "./Stats"
+import { Guid } from "guid-typescript"
+import { getModifierActions } from '../actions'
+
+const generatedID = Guid.create().toString())
+
+export const ModifierMST = types.model("Modifier", {
+  id: types.optional(types.identifier, generatedID),
+  level: types.optional(types.number, 0), // Can be negative or positive numbers to add or minus on stats
+  damage: types.optional(types.number, 0), // Can be negative or positive numbers to add or minus on stats
+  defense: types.optional(types.number, 0) // Can be negative or positive numbers to add or minus on stats
+}).actions(self => getModifierActions(self))
+
+export interface IModifier extends Instance<typeof ModifierMST> { }
 
 
-export interface IModifier extends IModelType {
-  id: string,
-  addStats: IStats,
-  minusStats: IStats
+export default class Modifier extends Stats {
+  id: string = generatedID
 }
-
-const Modifier = {
-  id: types.optional(types.identifier, uuid()),
-  addStats: types.optional(Stats),
-  minusStats: types.optional(Stats)
-}
-
-const ModifierModel = types.model("Modifier", Modifier)
-
-export default ModifierModel

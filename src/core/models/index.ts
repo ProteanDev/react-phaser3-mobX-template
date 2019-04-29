@@ -1,10 +1,20 @@
-import Action, { IAction } from "./Action"
-import Actor, { IActor } from "./Actor"
-import Entity, { IEntity } from "./Entity"
-import Stats, { IStats } from "./Stats"
-import Modifier, { IModifier } from "./Modifier"
+import Move, { MoveMST } from "./Move"
+import Actor, { ActorMST } from "./Actor"
+import Entity, { EntityMST } from "./Entity"
+import Stats, { StatsMST } from "./Stats"
+import Modifier, { ModifierMST } from "./Modifier"
+import BaseModel from './BaseModel'
 
 export default {
+  BaseModel,
   Stats,
-  Entity
+  StatsMST,
+  Entity,
+  EntityMST,
+  Actor,
+  ActorMST,
+  Modifier,
+  ModifierMST,
+  Move,
+  MoveMST
 }
