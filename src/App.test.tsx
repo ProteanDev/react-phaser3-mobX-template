@@ -13,7 +13,7 @@ const statsTS = { ...(new Models.Stats()) }
 const entityTS = { ...(new Models.Entity()) }
 const actorTS = { ...(new Models.Actor()) }
 const modifierTS = { ...(new Models.Modifier()) }
-const moveTS = { ...(new Models.Move()) }
+const moveTS = { ...(new Models.Move([modifierTS])) }
 
 const statsMST = Models.StatsMST.create(statsTS)
 const entityMST = Models.EntityMST.create(entityTS)
@@ -31,11 +31,11 @@ it("test TS models", () => {
 
 it("test MST models", () => {
 
-  console.log("RETURNED TEST:", statsMST.setLevel(1000))
-
   console.log("Stats MST Model:\n", { ...statsMST })
   console.log("Entity MST Model:\n", { ...entityMST })
   console.log("Actor MST Model:\n", { ...actorMST })
   console.log("Modifier MST Model:\n", { ...modifierMST })
   console.log("Move MST Model:\n", { ...moveMST })
+
+  console.log("RETURNED TEST:", moveMST.addModifier(new Models.Modifier()))
 })

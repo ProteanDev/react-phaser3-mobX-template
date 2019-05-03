@@ -19,7 +19,7 @@ export interface IMove extends Instance<typeof MoveMST> { }
 export default class Move extends BaseModel {
   id: string = generatedID
   cooldown: number = 0
-  modifiers: Modifier[]
+  modifiers: Modifier[] = []
   isReaction: boolean = false
 
   constructor(withModifiers: Modifier[] = []) {
