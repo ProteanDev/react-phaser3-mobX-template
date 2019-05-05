@@ -3,7 +3,7 @@ import { Guid } from "guid-typescript"
 import BaseModel from './BaseModel'
 import { getStatsActions } from '../actions'
 
-const generatedID = Guid.create().toString())
+const generatedID = Guid.create().toString()
 
 export const StatsMST = types.model("Stats", {
   id: types.optional(types.string, generatedID),
@@ -14,9 +14,9 @@ export const StatsMST = types.model("Stats", {
 
 export interface IStats extends Instance<typeof StatsMST> { }
 
-export default class Stats extends BaseModel {
-  id: string = generatedID
-  level: number = 0
-  damage: number = 0
-  defense: number = 0
+export default class Stats extends BaseModel implements IStats {
+  id = generatedID
+  level = 0
+  damage = 0
+  defense = 0
 }

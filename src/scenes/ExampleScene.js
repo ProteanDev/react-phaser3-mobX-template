@@ -17,7 +17,7 @@ class ExampleScene extends Phaser.Scene {
     text.setInteractive({ useHandCursor: true })
 
     text.on("pointerup", () => {
-      console.log("Phaser Text Button Clicked")
+      // console.log("Phaser Text Button Clicked")
     })
   }
 }

@@ -1,9 +1,9 @@
 import { types, Instance } from "mobx-state-tree"
-import Entity from "./Entity"
 import { Guid } from "guid-typescript"
 import { getActorActions } from '../actions'
+import BaseModel from './BaseModel'
 
-const generatedID = Guid.create().toString())
+const generatedID = Guid.create().toString()
 
 export const ActorMST = types.model("Actor", {
   id: types.optional(types.identifier, generatedID),
@@ -16,7 +16,11 @@ export const ActorMST = types.model("Actor", {
 
 export interface IActor extends Instance<typeof ActorMST> { }
 
-export default class Actor extends Entity {
-  id: string = generatedID
-  hitPoints: number = 100
+export default class Actor extends BaseModel implements IActor {
+  id = generatedID
+  hitPoints = 100
+  indestructable = false
+  level = 0
+  damage = 0
+  defense = 0
 }

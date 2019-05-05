@@ -1,9 +1,9 @@
 import { types, Instance } from "mobx-state-tree"
-import Stats from "./Stats"
 import { Guid } from "guid-typescript"
 import { getEntityActions } from '../actions'
+import BaseModel from './BaseModel'
 
-const generatedID = Guid.create().toString())
+const generatedID = Guid.create().toString()
 
 export const EntityMST = types.model("Entity", {
   id: types.optional(types.identifier, generatedID),
@@ -15,7 +15,10 @@ export const EntityMST = types.model("Entity", {
 
 export interface IEntity extends Instance<typeof EntityMST> { }
 
-export default class Entity extends Stats {
-  id: string = generatedID
-  indestructable: boolean = false
+export default class Entity extends BaseModel implements IEntity {
+  id = generatedID
+  indestructable = false
+  level = 0
+  damage = 0
+  defense = 0
 }

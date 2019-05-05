@@ -14,7 +14,11 @@
     "ordered-imports": [false],
     "object-literal-sort-keys": [false],
     "semicolon": [true, "never"],
-    "member-access": [true, "no-public"]
+    "member-access": [true, "no-public"],
+    "one-variable-per-declaration": false,
+    "no-unused-expression": {
+      "severity": "warning"
+    }
   },
   "jsRules": {
     "no-console": {
@@ -23,6 +27,10 @@
     "ordered-imports": [false],
     "object-literal-sort-keys": [false],
     "semicolon": [true, "never"],
-    "member-access": [true, "no-public"]
+    "member-access": [true, "no-public"],
+    "one-variable-per-declaration": false,
+    "no-unused-expression": {
+      "severity": "warning"
+    }
   }
 }

@@ -1,9 +1,9 @@
 import { types, Instance } from "mobx-state-tree"
-import Stats from "./Stats"
 import { Guid } from "guid-typescript"
 import { getModifierActions } from '../actions'
+import BaseModel from './BaseModel'
 
-const generatedID = Guid.create().toString())
+const generatedID = Guid.create().toString()
 
 export const ModifierMST = types.model("Modifier", {
   id: types.optional(types.identifier, generatedID),
@@ -14,7 +14,9 @@ export const ModifierMST = types.model("Modifier", {
 
 export interface IModifier extends Instance<typeof ModifierMST> { }
 
-
-export default class Modifier extends Stats {
-  id: string = generatedID
+export default class Modifier extends BaseModel implements IModifier {
+  id = generatedID
+  level = 0
+  damage = 0
+  defense = 0
 }
