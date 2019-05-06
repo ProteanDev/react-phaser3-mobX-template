@@ -1,6 +1,5 @@
-import { types, Instance } from "mobx-state-tree"
+import { types, Instance, IModelType } from "mobx-state-tree"
 import { Guid } from "guid-typescript"
-import { getAccountActions } from '../actions'
 import BaseModel from './BaseModel'
 
 const generatedID = Guid.create().toString()
@@ -13,7 +12,7 @@ export const AccountMST = types.model("Account", {
   lastname: types.optional(types.string, ""),
   username: types.optional(types.string, ""),
   password: types.optional(types.string, "")
-}).actions(self => getAccountActions(self))
+})
 
 export interface IAccount extends Instance<typeof AccountMST> { }
 

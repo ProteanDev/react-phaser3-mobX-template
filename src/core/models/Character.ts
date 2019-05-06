@@ -1,7 +1,6 @@
 import { types, Instance } from "mobx-state-tree"
 import { ModifierMST } from "./Modifier"
 import { Guid } from "guid-typescript"
-import { getCharacterActions } from '../actions'
 import BaseModel from './BaseModel'
 import Modifier from './Modifier'
 import Move from './Move'
@@ -17,11 +16,11 @@ export const CharacterMST = types.model("Character", {
   hitPoints: types.optional(types.number, 100),
   modifiers: types.optional(types.array(types.string), []),
   moves: types.optional(types.array(types.string), [])
-}).actions(self => getCharacterActions(self))
+})
 
 export interface ICharacter extends Instance<typeof CharacterMST> { }
 
-export default class Character extends BaseModel implements ICharacter {
+export default class Character extends BaseModel {
   id = generatedID
   hitPoints = 100
   indestructable = false

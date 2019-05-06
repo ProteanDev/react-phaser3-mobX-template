@@ -1,7 +1,6 @@
 import { ICharacter } from '../models/Character'
 import Modifier from '../models/Modifier'
 import Move from '../models/Move'
-import { remove } from 'lodash'
 
 const getCharacterActions = <T extends ICharacter>(self: T) => ({
   setLevel(lvl = 1): number { return self.level = lvl }
@@ -17,20 +16,20 @@ const getCharacterActions = <T extends ICharacter>(self: T) => ({
   setHitPoints(hp = 100): number { return self.hitPoints = hp }
   addModifier(mod = new Modifier()): string[] {
     self.modifiers.push(mod.id)
-    // console.log("MST ARRAY: ", self.modifiers.slice())
     return self.modifiers.slice()
   }
   removeModifier(modId: string): string[] {
-    remove(self.modifiers, v => v === modId)
+    const filtered = self.modifiers.slice().filter(v => v !== modId)
+    self.modifiers.replace(filtered)
     return self.modifiers.slice()
   }
   addMove(move = new Move()): string[] {
     self.moves.push(move.id)
-    // console.log("MST ARRAY: ", self.moves.slice())
     return self.moves.slice()
   }
   removeMove(moveId: string): string[] {
-    remove(self.moves, v => v === moveId)
+    const filtered = self.moves.slice().filter(v => v !== moveId)
+    self.moves.replace(filtered)
     return self.moves.slice()
   }
 })
